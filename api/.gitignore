@@ -1,0 +1,4 @@
+node_modules/
+dist/
+dev-firebase-security.json
+**/.DS_Store
