@@ -1,3 +1,12 @@
 module.exports = {
-  lintOnSave: false
+  lintOnSave: false,
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `
+                @import "./src/styles/custom.scss";
+            `
+      }
+    }
+  }
 }
