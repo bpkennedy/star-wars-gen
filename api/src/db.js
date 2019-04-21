@@ -11,9 +11,9 @@ export const initializeDb = (callback) => {
   } else if (process.env.NODE_ENV === 'ci') {
     firebaseAppInstance = admin.initializeApp({
       credential: admin.credential.cert({
-        'projectId': process.env.FB_UAT_PROJECT_ID,
-        'clientEmail': process.env.FB_UAT_CLIENT_EMAIL,
-        'privateKey': process.env.FB_UAT_PRIVATE_KEY,
+        'project_id': process.env.FB_UAT_PROJECT_ID,
+        'client_email': process.env.FB_UAT_CLIENT_EMAIL,
+        'private_key': process.env.FB_UAT_PRIVATE_KEY,
       }),
       databaseURL: 'https://star-wars-generations-dev.firebaseio.com/'
     })
