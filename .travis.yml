@@ -21,8 +21,8 @@ jobs:
       - chmod +x ./scripts/installDeps.sh
       - ./scripts/installDeps.sh
       script:
-      - chmod +x ./scripts/test.sh
-      - ./scripts/test.sh
+      - chmod +x ./scripts/testCi.sh
+      - ./scripts/testCi.sh
       
 # after_success:
 #   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh

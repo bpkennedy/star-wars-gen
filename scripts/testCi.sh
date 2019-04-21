@@ -5,7 +5,7 @@ GREEN='\033[1;32m'
 NC='\033[0m' # No Color
 
 # run api unit tests
-if (cd ./api && npm run test:dev && cd -) || exit 1 ; then
+if (cd ./api && npm run test:ci && cd -) || exit 1 ; then
   echo -e "${GREEN}API unit tests successful${NC}"
 else
   echo -e "${RED}API unit tests failed${NC}"

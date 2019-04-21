@@ -27,7 +27,7 @@ main.use(bodyParser.json())
 main.use(bodyParser.urlencoded({ extended: false }))
 
 const startupForGoogleCloudFunction = (expressApp) => {
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'ci') {
     // we are running the api locally here
     const port = 3000
     return main.listen(port, () => {

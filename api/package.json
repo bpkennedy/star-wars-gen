@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "scripts": {
     "lint": "eslint src",
-    "test": "cross-env NODE_ENV=development mocha --require @babel/register tests/*.spec.js --exit",
+    "test:dev": "cross-env NODE_ENV=development mocha --require @babel/register tests/*.spec.js --exit",
+    "test:ci": "cross-env NODE_ENV=ci mocha --require @babel/register tests/*.spec.js --exit",
     "build": "npx babel src --out-dir dist",
     "dev": "cross-env NODE_ENV=development nodemon --exec babel-node src"
   },

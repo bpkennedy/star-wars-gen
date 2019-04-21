@@ -8,6 +8,15 @@ export const initializeDb = (callback) => {
       credential: admin.credential.cert(serviceAccount),
       databaseURL: 'https://star-wars-generations-dev.firebaseio.com/'
     })
+  } else if (process.env.NODE_ENV === 'ci') {
+    firebaseAppInstance = admin.initializeApp({
+      credential: admin.credential.cert({
+        'projectId': process.env.FB_UAT_PROJECT_ID,
+        'clientEmail': process.env.FB_UAT_CLIENT_EMAIL,
+        'privateKey': process.env.FB_UAT_PRIVATE_KEY,
+      }),
+      databaseURL: 'https://star-wars-generations-dev.firebaseio.com/'
+    })
   } else {
     const functions = require('firebase-functions')
     firebaseAppInstance = admin.initializeApp(functions.config().firebase)
