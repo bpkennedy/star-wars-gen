@@ -13,7 +13,7 @@ export const initializeDb = (callback) => {
       credential: admin.credential.cert({
         'project_id': process.env.FB_UAT_PROJECT_ID,
         'client_email': process.env.FB_UAT_CLIENT_EMAIL,
-        'private_key': process.env.FB_UAT_PRIVATE_KEY,
+        'private_key': JSON.parse(process.env.FB_UAT_PRIVATE_KEY),
       }),
       databaseURL: 'https://star-wars-generations-dev.firebaseio.com/'
     })
