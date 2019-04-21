@@ -12,11 +12,6 @@
     "node": "8"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "firebase-admin": "~7.0.0",
-    "firebase-functions": "^2.2.0",
-    "hapi": "^18.1.0"
   },
   "devDependencies": {
   },
