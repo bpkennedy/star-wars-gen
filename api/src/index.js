@@ -3,10 +3,12 @@ import bodyParser from "body-parser"
 import { initializeDb, deleteFirestore } from './db'
 
 const app = express()
+export let database
 
 initializeDb(db => {
   // app.use('/api', routes(db, logger))
   // View all ships
+  database = db
   app.get('/ships', async (req, res) => {
     let ships = []
     try {

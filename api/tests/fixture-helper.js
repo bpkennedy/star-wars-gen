@@ -20,20 +20,27 @@ export async function apiDelete(path) {
 
 export function setupTest(test) {
   const timeout = 5 * 60 * 1000
-
   test.timeout(timeout)
+  let db
   
   before(async () => {
-    require('../src/index.js')
+    const app = require('../src/index.js')
+    db = app.database
   })
 
   after(async () => {
     require('../src/index.js').stop()
+    db = null
     delete require.cache[require.resolve('../src/index.js')]
   })
 
-  // beforeEach(async () => {
-  //     await removeExistingData()
-  //     await seedDatabaseData(DataSource.knex())
-  // })
+  beforeEach(async () => {
+    const helper = require('../src/seedDatabaseHelper')
+    await helper.clearDatabase(db)
+    await helper.seedDatabase(db)
+  })
+  
+  afterEach(async () => {
+    delete require.cache[require.resolve('../src/seedDatabaseHelper.js')]
+  })
 }
